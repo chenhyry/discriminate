@@ -38,6 +38,8 @@ public class NcnnYolox {
 
     public native boolean closeCamera();
 
+    public native boolean detectDraw(int w, int h, int[] pixArr);
+
     public native boolean setOutputWindow(Surface surface);
 
     public static void jniCallJavaDetect(String data) {

@@ -296,5 +296,38 @@ JNIEXPORT jboolean JNICALL Java_com_tencent_ncnnyolox_NcnnYolox_setOutputWindow(
     return JNI_TRUE;
 }
 
+JNIEXPORT jboolean JNICALL Java_com_tencent_ncnnyolox_NcnnYolox_detectDraw(JNIEnv* env, jobject thiz, jint jw, jint jh, jintArray jPixArr)
+{
+    jint *cPixArr = env->GetIntArrayElements(jPixArr, JNI_FALSE);
+    if (cPixArr == NULL) {
+        return JNI_FALSE;
+    }
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////
+
+    // 用传入的数组构建Mat，然后从RGBA转成RGB
+    cv::Mat mat_image_src(jh, jw, CV_8UC4, (unsigned char *) cPixArr);
+    cv::Mat rgb;
+    cvtColor(mat_image_src, rgb, cv::COLOR_RGBA2RGB, 3);
+
+    // 将RGB图喂入ncnn进行推理，绘制bbox和fps
+    {
+        ncnn::MutexLockGuard g(lock);
+        std::vector<Object> objects;
+        g_yolox->detect(rgb, objects);
+        g_yolox->draw(rgb, objects,recognitionRate);
+    }
+    draw_fps(rgb);
+
+    // 将Mat从RGB转回去RGBA刷新java数据
+    cvtColor(rgb, mat_image_src, cv::COLOR_RGB2RGBA, 4);
+    // 释放掉C数组
+    env->ReleaseIntArrayElements(jPixArr, cPixArr, 0);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////
+
+    return JNI_TRUE;
+}
+
 }
 
