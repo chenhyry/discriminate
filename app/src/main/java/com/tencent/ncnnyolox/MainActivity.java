@@ -40,6 +40,7 @@ import androidx.camera.core.Camera;
 import androidx.camera.core.CameraSelector;
 import androidx.camera.core.ImageAnalysis;
 import androidx.camera.core.ImageCapture;
+import androidx.camera.core.ImageProxy;
 import androidx.camera.core.Preview;
 import androidx.camera.core.VideoCapture;
 import androidx.camera.lifecycle.ProcessCameraProvider;
@@ -58,6 +59,7 @@ import java.util.concurrent.Executors;
 
 public class MainActivity extends AppCompatActivity implements SurfaceHolder.Callback {
     public static final int REQUEST_CAMERA = 100;
+    public static final String TAG = "MainActivity";
 
     private NcnnYolox ncnnyolox = new NcnnYolox();
     private int facing = 0;
@@ -222,16 +224,82 @@ public class MainActivity extends AppCompatActivity implements SurfaceHolder.Cal
                 .setOutputImageFormat(ImageAnalysis.OUTPUT_IMAGE_FORMAT_YUV_420_888)
                 .setImageQueueDepth(1)// 设置图像队列深度为1
                 .setBackpressureStrategy(ImageAnalysis.STRATEGY_KEEP_ONLY_LATEST).build();
+
         // 设置分析器
         imageAnalysis.setAnalyzer(Executors.newSingleThreadExecutor(), image -> {
+
+            ImageProxy.PlaneProxy[] planes = image.getPlanes();
+            new Thread(() -> {
+
+                for (int i = 0; i < planes.length; i++) {
+                    Log.i(TAG, "pixelStride  " + planes[i].getPixelStride());
+                    Log.i(TAG, "rowStride   " + planes[i].getRowStride());
+                    Log.i(TAG, "width  " + image.getWidth());
+                    Log.i(TAG, "height  " + image.getHeight());
+                    Log.i(TAG, "Finished reading data from plane  " + i);
+                }
+
+                //cameraX 获取yuv
+                ByteBuffer yBuffer = planes[0].getBuffer();
+                ByteBuffer uBuffer = planes[1].getBuffer();
+                ByteBuffer vBuffer = planes[2].getBuffer();
+
+                int ySize = yBuffer.remaining();
+                int uSize = uBuffer.remaining();
+                int vSize = vBuffer.remaining();
+
+                byte[] nv21 = new byte[ySize + uSize + vSize];
+
+                yBuffer.get(nv21, 0, ySize);
+                vBuffer.get(nv21, ySize, vSize);
+                uBuffer.get(nv21, ySize + vSize, uSize);
+
+                //开始时间
+                long START = System.currentTimeMillis();
+                //获取yuvImage
+                YuvImage yuvImage = new YuvImage(nv21, ImageFormat.NV21, image.getWidth(), image.getHeight(), null);
+                //输出流
+                ByteArrayOutputStream out = new ByteArrayOutputStream();
+                //压缩写入out
+                yuvImage.compressToJpeg(new Rect(0, 0, yuvImage.getWidth(), yuvImage.getHeight()), 50, out);
+                //转数组
+                byte[] imageBytes = out.toByteArray();
+                //生成bitmap
+                Bitmap bitmap = BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.length);
+                //旋转bitmap
+                Bitmap rotateBitmap = rotateBitmap(bitmap, 90);
+
+
+                // 在这里跑ncnn
+                int width = rotateBitmap.getWidth();
+                int height = rotateBitmap.getHeight();
+                int[] pixArr = new int[width * height];
+                // bitmap转数组
+                rotateBitmap.getPixels(pixArr, 0, width, 0, 0, width, height);
+                // 推理
+                ncnnyolox.detectDraw(width, height, pixArr);
+                // 数组转回去bitmap
+                Bitmap newBitmap = Bitmap.createBitmap(width, height, Bitmap.Config.RGB_565);
+                newBitmap.setPixels(pixArr, 0, width, 0, 0, width, height);
+
+                //结束时间
+                long END = System.currentTimeMillis();
+                runOnUiThread(() -> {
+                    ivBitmap.setImageBitmap(newBitmap);
+                    Log.e(TAG, "耗时: " + (END - START));
+                    //关闭
+                    image.close();
+                });
+            }).start();
+
+
             // 从CameraX提供的ImageProxy拉取图像数据
             // 优点：是摄像头获取的真实分辨率
             // 缺点：提供的是YUV格式的Image，转Bitmap比较困难
-            Image img = image.getImage();
+         /*   Image img = image.getImage();
             final Bitmap bitmap = onImageAvailable(img);
             if (bitmap == null) return;
             Matrix matrix = new Matrix();
-            matrix.setRotate(90);
             final Bitmap result = Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix
                     , true);
 
@@ -251,11 +319,30 @@ public class MainActivity extends AppCompatActivity implements SurfaceHolder.Cal
                 @Override
                 public void run() {
                     ivBitmap.setImageBitmap(newBitmap); // 将推理后的bitmao喂回去
+                    image.close();
                 }
             });
-            image.close();
+*/
+
         });
         return imageAnalysis;
+    }
+
+    private Bitmap rotateBitmap(Bitmap origin, float alpha) {
+        if (origin == null) {
+            return null;
+        }
+        int width = origin.getWidth();
+        int height = origin.getHeight();
+        Matrix matrix = new Matrix();
+        matrix.setRotate(alpha);
+        // 围绕原地进行旋转
+        Bitmap newBM = Bitmap.createBitmap(origin, 0, 0, width, height, matrix, false);
+        if (newBM.equals(origin)) {
+            return newBM;
+        }
+        origin.recycle();
+        return newBM;
     }
 
     public Bitmap onImageAvailable(Image image) {
@@ -279,7 +366,7 @@ public class MainActivity extends AppCompatActivity implements SurfaceHolder.Cal
         final YuvImage yuvImage = new YuvImage(outputbytes.toByteArray(), ImageFormat.NV21, image.getWidth(),
                 image.getHeight(), null);
         ByteArrayOutputStream outBitmap = new ByteArrayOutputStream();
-        yuvImage.compressToJpeg(new Rect(0, 0, image.getWidth(), image.getHeight()), 95, outBitmap);
+        yuvImage.compressToJpeg(new Rect(0, 0, image.getWidth(), image.getHeight()), 100, outBitmap);
         Bitmap bitmap = BitmapFactory.decodeByteArray(outBitmap.toByteArray(), 0, outBitmap.size());
         image.close();
         return bitmap;
