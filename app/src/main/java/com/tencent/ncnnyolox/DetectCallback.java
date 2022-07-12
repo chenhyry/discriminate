@@ -1,5 +1,5 @@
 package com.tencent.ncnnyolox;
 
-interface DetectCallback {
+public interface DetectCallback {
     void callBack(String data);
 }
