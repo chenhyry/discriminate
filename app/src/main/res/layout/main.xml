@@ -43,4 +43,10 @@
         android:layout_width="320dp"
         android:layout_height="240dp" />
 
+    <Button
+        android:id="@+id/buttonPostImg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="上传图片" />
+
 </LinearLayout>

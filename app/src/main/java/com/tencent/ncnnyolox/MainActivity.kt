@@ -41,8 +41,10 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.main)
         window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
         surfaceView = findViewById(R.id.surfaceView)
+        findViewById<View>(R.id.buttonPostImg).setOnClickListener {
+            DetectManager.instance.takePhoto()
+        }
 
-        DetectManager.instance.setSurfaceView(surfaceView,true,false)
     }
 
     public override fun onResume() {
@@ -50,12 +52,18 @@ class MainActivity : AppCompatActivity() {
         if (ContextCompat.checkSelfPermission(applicationContext, Manifest.permission.CAMERA) == PackageManager.PERMISSION_DENIED) {
             ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.CAMERA), REQUEST_CAMERA)
         }
-        DetectManager.instance.onResume(this)
+
+        DetectManager.instance.onResume(this, surfaceView, DetectCallback { },false,false)
     }
 
     public override fun onPause() {
         super.onPause()
         DetectManager.instance.onPause()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        DetectManager.instance.onDestroy()
     }
 
     companion object {

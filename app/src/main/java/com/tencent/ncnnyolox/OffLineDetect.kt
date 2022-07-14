@@ -15,12 +15,14 @@ class OffLineDetect {
     private var surfaceView: SurfaceView? = null
     private var useFrontCamera: Boolean = false
 
-    fun initOfflineDetect(context: Context, surfaceView: SurfaceView,useFrontCamera : Boolean) {
-        if(ncnnyolox != null) return
-        ncnnyolox = NcnnYolox()
+    fun initOfflineDetect(context: Context, surfaceView: SurfaceView,useFrontCamera : Boolean,detectCallback: DetectCallback) {
+        if(ncnnyolox == null) {
+            ncnnyolox = NcnnYolox()
+        }
         this.surfaceView = surfaceView
         this.useFrontCamera = useFrontCamera
-        surfaceView.holder.setFormat(PixelFormat.RGBA_8888)
+        this.detectCallback = detectCallback
+        surfaceView.holder.setFormat(PixelFormat.RGB_565)
         surfaceView.holder.addCallback(object : SurfaceHolder.Callback{
             override fun surfaceCreated(p0: SurfaceHolder) {
 
@@ -35,7 +37,6 @@ class OffLineDetect {
 
         })
         reloadModel(context)
-        detectCallback = DetectCallback { data -> Log.e("OffLineDetect", data) }
         NcnnYolox.setDetectCallBack(detectCallback, true)
     }
 

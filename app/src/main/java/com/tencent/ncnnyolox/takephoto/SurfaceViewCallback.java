@@ -71,7 +71,7 @@ public class SurfaceViewCallback implements SurfaceHolder.Callback {
             mCamera.setPreviewCallback(new Camera.PreviewCallback() {
                 @Override
                 public void onPreviewFrame(byte[] bytes, Camera camera) {
-                    Log.i("SurfaceViewCallback", "onPreviewFrame " + canTake);
+//                    Log.i("SurfaceViewCallback", "onPreviewFrame " + canTake);
                     if (canTake) {
                         getSurfacePic(bytes, camera);
                         canTake = false;

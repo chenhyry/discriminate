@@ -1,4 +1,4 @@
-package com.tencent.ncnnyolox;
+package com.tencent.ncnnyolox.takephoto;
 
 
 import java.util.concurrent.Executors;

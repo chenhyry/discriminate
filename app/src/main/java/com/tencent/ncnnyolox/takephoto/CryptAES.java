@@ -1,4 +1,4 @@
-package com.tencent.ncnnyolox.net;
+package com.tencent.ncnnyolox.takephoto;
 
 
 import android.util.Base64;

@@ -17,21 +17,25 @@ class DetectManager {
 
     var offLineDetect: OffLineDetect? = null
 
-    fun setSurfaceView(surfaceView: SurfaceView, offlineType: Boolean, useFrontCamera: Boolean) {
-        this.surfaceView = surfaceView
-        this.offlineType = offlineType
-        this.useFrontCamera = useFrontCamera
-        if (offlineType) {
-            offLineDetect = OffLineDetect()
+    fun takePhoto() {
+        if (!offlineType) {
+            OnLineDetect.cameraTakeManager?.takePhoto()
         }
     }
 
-    fun onResume(activity: Activity, detectListener: DetectListener?) {
+    fun onResume(activity: Activity, surfaceView: SurfaceView,detectCallback: DetectCallback, offlineType: Boolean, useFrontCamera: Boolean) {
+        this.surfaceView = surfaceView
+        this.useFrontCamera = useFrontCamera
+        this.offlineType = offlineType
+
         if (offlineType) {
-            offLineDetect?.initOfflineDetect(activity, surfaceView, useFrontCamera)
+            if (offLineDetect == null) {
+                offLineDetect = OffLineDetect()
+            }
+            offLineDetect?.initOfflineDetect(activity, surfaceView, useFrontCamera,detectCallback)
             offLineDetect?.onResume()
         } else {
-            OnLineDetect.initCameraManager(activity, surfaceView, useFrontCamera, detectListener!!)
+            OnLineDetect.initCameraManager(activity, surfaceView, useFrontCamera, detectCallback)
         }
     }
 
@@ -43,5 +47,10 @@ class DetectManager {
         }
     }
 
+    fun onDestroy() {
+        if (offlineType) {
+            offLineDetect?.onDestroy()
+        }
+    }
 
 }

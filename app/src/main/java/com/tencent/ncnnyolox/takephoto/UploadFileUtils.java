@@ -1,6 +1,9 @@
 package com.tencent.ncnnyolox.takephoto;
 
 import android.util.Base64;
+import android.util.Log;
+
+import com.tencent.ncnnyolox.Constant;
 
 import java.io.BufferedReader;
 import java.io.DataInputStream;
@@ -169,6 +172,11 @@ public class UploadFileUtils {
             //创建连接
             URL url = new URL(urlStr);
             conn = (HttpURLConnection) url.openConnection();
+
+//            for (Map.Entry item : map.entrySet()) {
+//                conn.setRequestProperty(item.getKey().toString(),item.getValue().toString());//设置header
+//            }
+
             conn.setRequestMethod("POST");
             conn.setUseCaches(false);
             conn.setConnectTimeout(5000);
@@ -181,7 +189,8 @@ public class UploadFileUtils {
             // 设置文件类型:
             conn.setRequestProperty("Content-Type", "application/json");
             conn.setRequestProperty("Accept", "application/json");
-
+            conn.setRequestProperty("tag", Constant.Tag);
+            conn.setRequestProperty("alias", "true");
 
             // 往服务器里面发送数据
             byte[] writebytes = jsonStr.getBytes();
@@ -193,7 +202,7 @@ public class UploadFileUtils {
             out.writeBytes(jsonStr);
             out.flush();
             out.close();
-
+            Log.e("responseCode",conn.getResponseCode()+"..");
             if (conn.getResponseCode() == 200) {
                 BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
                 String lines;
