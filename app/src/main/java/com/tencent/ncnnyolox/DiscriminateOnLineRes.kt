@@ -2,7 +2,12 @@ package com.tencent.ncnnyolox
 
 import java.math.BigDecimal
 
-data class DiscriminateOnLine(
+data class DiscriminateOnLineRes(
+    var message: String? = null,
+    var data: List<Discriminate>? = null
+)
+
+class Discriminate(
     var m_x: BigDecimal? = null,
     var m_y: BigDecimal? = null,
     var left_top_x: BigDecimal? = null,
