@@ -15,23 +15,42 @@
 package com.tencent.ncnnyolox
 
 import android.Manifest
-import android.content.Intent
 import android.content.pm.PackageManager
-import android.graphics.PixelFormat
 import android.os.Bundle
-import android.util.Log
-import android.view.SurfaceHolder
 import android.view.SurfaceView
+import android.view.TextureView
 import android.view.View
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 
+/**
+将 apply plugin: ‘com.android.application’ 修改为 apply plugin: ‘com.android.library’
+注释掉applicationId这一行。由于打包后该Module不再是一个独立的应用，而是一个其它项目的附属，所以不需要独立的applicationId
+如果有自定义的Application类，把name属性和icon属性删掉。因为打包成aar并被其它项目引用后，该AnroidManifest.xml会和所在项目的AnroidManifest.xml合并，这时会产生冲突。
+<application
+android:label="@string/app_name"
+android:theme="@style/AppTheme">
+<activity
+android:name=".MainActivity"
+android:exported="true"
+android:label="@string/app_name"
+android:screenOrientation="portrait">
+<intent-filter>
+<action android:name="android.intent.action.MAIN" />
+<category android:name="android.intent.category.LAUNCHER" />
+</intent-filter>
+</activity>
+</application>
+
+进入到Gradle界面，双击assemble就编译生成aar包了
+app-build-outputs-aar文件夹
+ */
 class MainActivity : AppCompatActivity() {
 
     private lateinit var surfaceView: SurfaceView
-
+    private lateinit var textureView: TextureView
 
     /**
      * Called when the activity is first created.
@@ -41,6 +60,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.main)
         window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
         surfaceView = findViewById(R.id.surfaceView)
+        textureView = findViewById(R.id.textureView)
         findViewById<View>(R.id.buttonPostImg).setOnClickListener {
             DetectManager.instance.takePhoto()
         }
@@ -53,7 +73,7 @@ class MainActivity : AppCompatActivity() {
             ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.CAMERA), REQUEST_CAMERA)
         }
 
-        DetectManager.instance.onResume(this, surfaceView, DetectCallback { },false,false)
+        DetectManager.instance.onResume(this, true, surfaceView, textureView,DetectCallback { },false,false)
     }
 
     public override fun onPause() {

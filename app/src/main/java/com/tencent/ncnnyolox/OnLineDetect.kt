@@ -1,16 +1,20 @@
 package com.tencent.ncnnyolox
 
 import android.app.Activity
+import android.hardware.usb.UsbDevice
 import android.text.TextUtils
 import android.util.Log
 import android.view.SurfaceView
+import android.view.TextureView
+import android.view.View
 import com.blankj.utilcode.util.EncodeUtils
 import com.blankj.utilcode.util.EncryptUtils
 import com.blankj.utilcode.util.GsonUtils
+import com.lgh.uvccamera.UVCCameraProxy
+import com.lgh.uvccamera.callback.ConnectCallback
 import com.tencent.ncnnyolox.takephoto.*
 import java.io.File
 import java.util.*
-import kotlin.collections.HashMap
 
 
 class OnLineDetect {
@@ -18,32 +22,84 @@ class OnLineDetect {
     companion object {
         //在线识别
         var cameraTakeManager: CameraTakeManager? = null
+        var mUVCCamera: UVCCameraProxy? = null
+        var isUsb: Boolean = false
 
         fun initCameraManager(
             activity: Activity,
-            surfaceView: SurfaceView,
+            isUsb: Boolean,
+            surfaceView: SurfaceView?,
+            textureView: TextureView?,
             frontFacing: Boolean,
             detectCallback: DetectCallback
         ) {
-            cameraTakeManager = CameraTakeManager(activity, surfaceView, object : CameraTakeListener {
-                override fun onSuccess(bitmapFile: File) {
-                    Log.e("图片路径：", bitmapFile.path)
+
+            if (isUsb) {
+                mUVCCamera = UVCCameraProxy(activity)
+                mUVCCamera?.setPreviewTexture(textureView)
+                mUVCCamera?.setPictureTakenCallback { path ->
+                    Log.e("图片路径：", "${path}")
                     val params = HashMap<String, Any>()
-                    params["img_data"] = UploadFileUtils.fileToBase64(bitmapFile)
+                    params["img_data"] = UploadFileUtils.fileToBase64(File(path))
                     params["sys_code"] = "s11"
                     Thread {
                         postImg(GsonUtils.toJson(params).toString(), detectCallback)
                     }.start()
                 }
 
-                override fun onFail(error: String) {
-                    Log.e("CameraTakeManager", error)
-                }
-            }, frontFacing)
+                mUVCCamera!!.setConnectCallback(object : ConnectCallback {
+                    override fun onAttached(usbDevice: UsbDevice) {
+                        mUVCCamera!!.requestPermission(usbDevice)
+                    }
+
+                    override fun onGranted(usbDevice: UsbDevice, granted: Boolean) {
+                        if (granted) {
+                            mUVCCamera!!.connectDevice(usbDevice)
+                        }
+                    }
+
+                    override fun onConnected(usbDevice: UsbDevice) {
+                        mUVCCamera!!.openCamera()
+                    }
+
+                    override fun onCameraOpened() {
+//                    showAllPreviewSizes()
+//                    mUVCCamera!!.setPreviewSize(640, 480)
+                        mUVCCamera!!.startPreview()
+                    }
+
+                    override fun onDetached(usbDevice: UsbDevice) {
+                        mUVCCamera!!.closeCamera()
+                    }
+                })
+            } else {
+                cameraTakeManager = CameraTakeManager(activity, surfaceView, object : CameraTakeListener {
+                    override fun onSuccess(bitmapFile: File) {
+                        Log.e("图片路径：", bitmapFile.path)
+                        val params = HashMap<String, Any>()
+                        params["img_data"] = UploadFileUtils.fileToBase64(bitmapFile)
+                        params["sys_code"] = "s11"
+                        Thread {
+                            postImg(GsonUtils.toJson(params).toString(), detectCallback)
+                        }.start()
+                    }
+
+                    override fun onFail(error: String) {
+                        Log.e("CameraTakeManager", error)
+                    }
+                }, frontFacing)
+            }
+
         }
 
         fun takePhoto() {
-            cameraTakeManager?.takePhoto()
+            if (isUsb) {
+                mUVCCamera?.let {
+                    it.takePicture()
+                }
+            } else {
+                cameraTakeManager?.takePhoto()
+            }
         }
 
         private fun postImg(params: String, detectCallback: DetectCallback) {

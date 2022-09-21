@@ -2,6 +2,8 @@ package com.tencent.ncnnyolox
 
 import android.app.Activity
 import android.view.SurfaceView
+import android.view.TextureView
+import android.view.View
 
 class DetectManager {
 
@@ -12,9 +14,6 @@ class DetectManager {
     }
 
     private var offlineType = false
-    private var useFrontCamera = false
-    private lateinit var surfaceView: SurfaceView
-
     var offLineDetect: OffLineDetect? = null
 
     fun takePhoto() {
@@ -23,19 +22,17 @@ class DetectManager {
         }
     }
 
-    fun onResume(activity: Activity, surfaceView: SurfaceView,detectCallback: DetectCallback, offlineType: Boolean, useFrontCamera: Boolean) {
-        this.surfaceView = surfaceView
-        this.useFrontCamera = useFrontCamera
+    fun onResume(activity: Activity,isUsb:Boolean, surfaceView: SurfaceView?,textureView : TextureView?,detectCallback: DetectCallback, offlineType: Boolean, useFrontCamera: Boolean) {
         this.offlineType = offlineType
 
         if (offlineType) {
             if (offLineDetect == null) {
                 offLineDetect = OffLineDetect()
             }
-            offLineDetect?.initOfflineDetect(activity, surfaceView, useFrontCamera,detectCallback)
+            offLineDetect?.initOfflineDetect(activity, surfaceView!!, useFrontCamera,detectCallback)
             offLineDetect?.onResume()
         } else {
-            OnLineDetect.initCameraManager(activity, surfaceView, useFrontCamera, detectCallback)
+            OnLineDetect.initCameraManager(activity,isUsb, surfaceView,textureView, useFrontCamera, detectCallback)
         }
     }
 

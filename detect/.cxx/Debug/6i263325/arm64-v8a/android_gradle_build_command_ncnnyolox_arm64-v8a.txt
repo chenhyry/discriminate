@@ -1,0 +1,7 @@
+Executable : D:\ProgramFiles\Sdk\cmake\3.10.2.4988404\bin\ninja.exe
+arguments : 
+-C
+D:\disriminate\ncnn-android-yolox-main\app\.cxx\Debug\6i263325\arm64-v8a
+ncnnyolox
+jvmArgs : 
+

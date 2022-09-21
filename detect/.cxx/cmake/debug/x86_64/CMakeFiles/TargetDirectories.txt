@@ -1,0 +1,3 @@
+D:/disriminate/ncnn-android-yolox-main/app/.cxx/cmake/debug/x86_64/CMakeFiles/rebuild_cache.dir
+D:/disriminate/ncnn-android-yolox-main/app/.cxx/cmake/debug/x86_64/CMakeFiles/ncnnyolox.dir
+D:/disriminate/ncnn-android-yolox-main/app/.cxx/cmake/debug/x86_64/CMakeFiles/edit_cache.dir

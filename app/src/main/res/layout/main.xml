@@ -49,4 +49,9 @@
         android:layout_height="wrap_content"
         android:text="上传图片" />
 
+    <TextureView
+        android:id="@+id/textureView"
+        android:layout_width="640dp"
+        android:layout_height="480dp" />
+
 </LinearLayout>

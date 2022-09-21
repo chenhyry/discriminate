@@ -68,6 +68,11 @@ public class SurfaceViewCallback implements SurfaceHolder.Callback {
                 listener.onFail("没有可用的摄像头");
                 return;
             }
+            //设置摄像头分辨率
+            Camera.Parameters parameters = mCamera.getParameters();
+            parameters.setPreviewSize(1280, 720);
+            mCamera.setParameters(parameters);
+//            mCamera.getParameters().getSupportedPreviewSizes();
             mCamera.setPreviewCallback(new Camera.PreviewCallback() {
                 @Override
                 public void onPreviewFrame(byte[] bytes, Camera camera) {
@@ -89,6 +94,7 @@ public class SurfaceViewCallback implements SurfaceHolder.Callback {
         }
 
         try {
+
             mCamera.setPreviewDisplay(holder);
             mCamera.startPreview();
             previewing = true;
@@ -177,7 +183,8 @@ public class SurfaceViewCallback implements SurfaceHolder.Callback {
         YuvImage image = new YuvImage(data, ImageFormat.NV21, size.width, size.height, null);
         if (image != null) {
             ByteArrayOutputStream stream = new ByteArrayOutputStream();
-            image.compressToJpeg(new Rect(0, 0, size.width, size.height), 80, stream);
+//            image.compressToJpeg(new Rect(0, 0, size.width, size.height), 80, stream);
+            image.compressToJpeg(new Rect(0, 0, size.width, size.height), 100, stream);
 
             Bitmap bmp = BitmapFactory.decodeByteArray(stream.toByteArray(), 0, stream.size());
             /** 因为图片会放生旋转，因此要对图片进行旋转到和手机在一个方向上*/
@@ -205,8 +212,9 @@ public class SurfaceViewCallback implements SurfaceHolder.Callback {
             listener.onFail("图片保存失败");
             return;
         }
-
-        compressPic(activity, filePic, listener);
+        listener.onSuccess(filePic);
+        //暂不压缩
+//        compressPic(activity, filePic, listener);
     }
 
     private File saveBitmap(Bitmap bitmap) {

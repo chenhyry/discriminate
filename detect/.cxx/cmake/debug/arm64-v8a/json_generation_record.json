@@ -1,0 +1,362 @@
+[
+  {
+    "level": "INFO",
+    "message": "Start JSON generation. Platform version: 21 min SDK version: arm64-v8a",
+    "file": "D:\\t11-manual_poslipinka\\detect\\src\\main\\jni\\CMakeLists.txt",
+    "tag": "debug|arm64-v8a"
+  },
+  {
+    "level": "INFO",
+    "message": "Trying to locate CMake in local SDK repository.",
+    "file": "D:\\t11-manual_poslipinka\\detect\\src\\main\\jni\\CMakeLists.txt",
+    "tag": "debug|arm64-v8a"
+  },
+  {
+    "level": "INFO",
+    "message": "- CMake found in SDK at \u0027D:\\ProgramFiles\\Sdk\\cmake\\3.10.2.4988404\u0027 had version \u00273.10.2\u0027",
+    "file": "D:\\t11-manual_poslipinka\\detect\\src\\main\\jni\\CMakeLists.txt",
+    "tag": "debug|arm64-v8a"
+  },
+  {
+    "level": "INFO",
+    "message": "CMake \u00273.6.0\u0027 found in SDK did not match requested version \u00273.10.2\u0027.",
+    "file": "D:\\t11-manual_poslipinka\\detect\\src\\main\\jni\\CMakeLists.txt",
+    "tag": "debug|arm64-v8a"
+  },
+  {
+    "level": "INFO",
+    "message": "rebuilding JSON D:\\t11-manual_poslipinka\\detect\\.cxx\\cmake\\debug\\arm64-v8a\\android_gradle_build.json due to:",
+    "file": "D:\\t11-manual_poslipinka\\detect\\src\\main\\jni\\CMakeLists.txt",
+    "tag": "debug|arm64-v8a"
+  },
+  {
+    "level": "INFO",
+    "message": "- expected json D:\\t11-manual_poslipinka\\detect\\.cxx\\cmake\\debug\\arm64-v8a\\android_gradle_build.json file is not present, will remove stale json folder",
+    "file": "D:\\t11-manual_poslipinka\\detect\\src\\main\\jni\\CMakeLists.txt",
+    "tag": "debug|arm64-v8a"
+  },
+  {
+    "level": "INFO",
+    "message": "- missing previous command file D:\\t11-manual_poslipinka\\detect\\.cxx\\cmake\\debug\\arm64-v8a\\build_command.txt, will remove stale json folder",
+    "file": "D:\\t11-manual_poslipinka\\detect\\src\\main\\jni\\CMakeLists.txt",
+    "tag": "debug|arm64-v8a"
+  },
+  {
+    "level": "INFO",
+    "message": "- command changed from previous, will remove stale json folder",
+    "file": "D:\\t11-manual_poslipinka\\detect\\src\\main\\jni\\CMakeLists.txt",
+    "tag": "debug|arm64-v8a"
+  },
+  {
+    "level": "INFO",
+    "message": "removing stale contents from \u0027D:\\t11-manual_poslipinka\\detect\\.cxx\\cmake\\debug\\arm64-v8a\u0027",
+    "file": "D:\\t11-manual_poslipinka\\detect\\src\\main\\jni\\CMakeLists.txt",
+    "tag": "debug|arm64-v8a"
+  },
+  {
+    "level": "INFO",
+    "message": "created folder \u0027D:\\t11-manual_poslipinka\\detect\\.cxx\\cmake\\debug\\arm64-v8a\u0027",
+    "file": "D:\\t11-manual_poslipinka\\detect\\src\\main\\jni\\CMakeLists.txt",
+    "tag": "debug|arm64-v8a"
+  },
+  {
+    "level": "INFO",
+    "message": "executing cmake Executable : D:\\ProgramFiles\\Sdk\\cmake\\3.10.2.4988404\\bin\\cmake.exe\narguments : \n-HD:\\t11-manual_poslipinka\\detect\\src\\main\\jni\n-DCMAKE_FIND_ROOT_PATH\u003dD:\\t11-manual_poslipinka\\detect\\.cxx\\cmake\\debug\\prefab\\arm64-v8a\\prefab\n-DCMAKE_BUILD_TYPE\u003dDebug\n-DCMAKE_TOOLCHAIN_FILE\u003dD:\\ProgramFiles\\Sdk\\ndk\\21.0.6113669\\build\\cmake\\android.toolchain.cmake\n-DANDROID_ABI\u003darm64-v8a\n-DANDROID_NDK\u003dD:\\ProgramFiles\\Sdk\\ndk\\21.0.6113669\n-DANDROID_PLATFORM\u003dandroid-21\n-DCMAKE_ANDROID_ARCH_ABI\u003darm64-v8a\n-DCMAKE_ANDROID_NDK\u003dD:\\ProgramFiles\\Sdk\\ndk\\21.0.6113669\n-DCMAKE_EXPORT_COMPILE_COMMANDS\u003dON\n-DCMAKE_LIBRARY_OUTPUT_DIRECTORY\u003dD:\\t11-manual_poslipinka\\detect\\build\\intermediates\\cmake\\debug\\obj\\arm64-v8a\n-DCMAKE_MAKE_PROGRAM\u003dD:\\ProgramFiles\\Sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe\n-DCMAKE_SYSTEM_NAME\u003dAndroid\n-DCMAKE_SYSTEM_VERSION\u003d21\n-BD:\\t11-manual_poslipinka\\detect\\.cxx\\cmake\\debug\\arm64-v8a\n-GNinja\njvmArgs : \n\n",
+    "file": "D:\\t11-manual_poslipinka\\detect\\src\\main\\jni\\CMakeLists.txt",
+    "tag": "debug|arm64-v8a"
+  },
+  {
+    "level": "INFO",
+    "message": "\n",
+    "file": "D:\\t11-manual_poslipinka\\detect\\src\\main\\jni\\CMakeLists.txt",
+    "tag": "debug|arm64-v8a"
+  },
+  {
+    "level": "INFO",
+    "message": "[\u003d\u003d \"CMake Server\" \u003d\u003d[\n",
+    "file": "D:\\t11-manual_poslipinka\\detect\\src\\main\\jni\\CMakeLists.txt",
+    "tag": "debug|arm64-v8a"
+  },
+  {
+    "level": "INFO",
+    "message": "{\"supportedProtocolVersions\":[{\"isExperimental\":true,\"major\":1,\"minor\":1}],\"type\":\"hello\"}\n",
+    "file": "D:\\t11-manual_poslipinka\\detect\\src\\main\\jni\\CMakeLists.txt",
+    "tag": "debug|arm64-v8a"
+  },
+  {
+    "level": "INFO",
+    "message": "]\u003d\u003d \"CMake Server\" \u003d\u003d]\n",
+    "file": "D:\\t11-manual_poslipinka\\detect\\src\\main\\jni\\CMakeLists.txt",
+    "tag": "debug|arm64-v8a"
+  },
+  {
+    "level": "INFO",
+    "message": "{\n  \"type\": \"handshake\",\n  \"cookie\": \"gradle-cmake-cookie\",\n  \"protocolVersion\": {\n    \"isExperimental\": true,\n    \"major\": 1,\n    \"minor\": 1\n  },\n  \"sourceDirectory\": \"D:/t11-manual_poslipinka/detect/src/main/jni\",\n  \"buildDirectory\": \"D:/t11-manual_poslipinka/detect/.cxx/cmake/debug/arm64-v8a\",\n  \"generator\": \"Ninja\"\n}\n",
+    "file": "D:\\t11-manual_poslipinka\\detect\\src\\main\\jni\\CMakeLists.txt",
+    "tag": "debug|arm64-v8a"
+  },
+  {
+    "level": "INFO",
+    "message": "{\"cookie\":\"gradle-cmake-cookie\",\"inReplyTo\":\"handshake\",\"type\":\"reply\"}\n",
+    "file": "D:\\t11-manual_poslipinka\\detect\\src\\main\\jni\\CMakeLists.txt",
+    "tag": "debug|arm64-v8a"
+  },
+  {
+    "level": "INFO",
+    "message": "{\n  \"type\": \"configure\",\n  \"cacheArguments\": [\n    \"\",\n    \"-DCMAKE_FIND_ROOT_PATH\\u003dD:\\\\t11-manual_poslipinka\\\\detect\\\\.cxx\\\\cmake\\\\debug\\\\prefab\\\\arm64-v8a\\\\prefab\",\n    \"-DCMAKE_BUILD_TYPE\\u003dDebug\",\n    \"-DCMAKE_TOOLCHAIN_FILE\\u003dD:\\\\ProgramFiles\\\\Sdk\\\\ndk\\\\21.0.6113669\\\\build\\\\cmake\\\\android.toolchain.cmake\",\n    \"-DANDROID_ABI\\u003darm64-v8a\",\n    \"-DANDROID_NDK\\u003dD:\\\\ProgramFiles\\\\Sdk\\\\ndk\\\\21.0.6113669\",\n    \"-DANDROID_PLATFORM\\u003dandroid-21\",\n    \"-DCMAKE_ANDROID_ARCH_ABI\\u003darm64-v8a\",\n    \"-DCMAKE_ANDROID_NDK\\u003dD:\\\\ProgramFiles\\\\Sdk\\\\ndk\\\\21.0.6113669\",\n    \"-DCMAKE_EXPORT_COMPILE_COMMANDS\\u003dON\",\n    \"-DCMAKE_LIBRARY_OUTPUT_DIRECTORY\\u003dD:\\\\t11-manual_poslipinka\\\\detect\\\\build\\\\intermediates\\\\cmake\\\\debug\\\\obj\\\\arm64-v8a\",\n    \"-DCMAKE_MAKE_PROGRAM\\u003dD:\\\\ProgramFiles\\\\Sdk\\\\cmake\\\\3.10.2.4988404\\\\bin\\\\ninja.exe\",\n    \"-DCMAKE_SYSTEM_NAME\\u003dAndroid\",\n    \"-DCMAKE_SYSTEM_VERSION\\u003d21\"\n  ]\n}\n",
+    "file": "D:\\t11-manual_poslipinka\\detect\\src\\main\\jni\\CMakeLists.txt",
+    "tag": "debug|arm64-v8a"
+  },
+  {
+    "level": "INFO",
+    "message": "{\"cookie\":\"\",\"inReplyTo\":\"configure\",\"message\":\"Check for working C compiler: D:/ProgramFiles/Sdk/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/bin/clang.exe\",\"type\":\"message\"}\n",
+    "file": "D:\\t11-manual_poslipinka\\detect\\src\\main\\jni\\CMakeLists.txt",
+    "tag": "debug|arm64-v8a"
+  },
+  {
+    "level": "INFO",
+    "message": "Check for working C compiler: D:/ProgramFiles/Sdk/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/bin/clang.exe",
+    "file": "D:\\t11-manual_poslipinka\\detect\\src\\main\\jni\\CMakeLists.txt",
+    "tag": "debug|arm64-v8a"
+  },
+  {
+    "level": "INFO",
+    "message": "{\"cookie\":\"\",\"inReplyTo\":\"configure\",\"progressCurrent\":33,\"progressMaximum\":1000,\"progressMessage\":\"Configuring\",\"progressMinimum\":0,\"type\":\"progress\"}\n",
+    "file": "D:\\t11-manual_poslipinka\\detect\\src\\main\\jni\\CMakeLists.txt",
+    "tag": "debug|arm64-v8a"
+  },
+  {
+    "level": "INFO",
+    "message": "{\"cookie\":\"\",\"inReplyTo\":\"configure\",\"message\":\"Check for working C compiler: D:/ProgramFiles/Sdk/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/bin/clang.exe -- works\",\"type\":\"message\"}\n",
+    "file": "D:\\t11-manual_poslipinka\\detect\\src\\main\\jni\\CMakeLists.txt",
+    "tag": "debug|arm64-v8a"
+  },
+  {
+    "level": "INFO",
+    "message": "Check for working C compiler: D:/ProgramFiles/Sdk/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/bin/clang.exe -- works",
+    "file": "D:\\t11-manual_poslipinka\\detect\\src\\main\\jni\\CMakeLists.txt",
+    "tag": "debug|arm64-v8a"
+  },
+  {
+    "level": "INFO",
+    "message": "{\"cookie\":\"\",\"inReplyTo\":\"configure\",\"message\":\"Detecting C compiler ABI info\",\"type\":\"message\"}\n",
+    "file": "D:\\t11-manual_poslipinka\\detect\\src\\main\\jni\\CMakeLists.txt",
+    "tag": "debug|arm64-v8a"
+  },
+  {
+    "level": "INFO",
+    "message": "Detecting C compiler ABI info",
+    "file": "D:\\t11-manual_poslipinka\\detect\\src\\main\\jni\\CMakeLists.txt",
+    "tag": "debug|arm64-v8a"
+  },
+  {
+    "level": "INFO",
+    "message": "{\"cookie\":\"\",\"inReplyTo\":\"configure\",\"progressCurrent\":65,\"progressMaximum\":1000,\"progressMessage\":\"Configuring\",\"progressMinimum\":0,\"type\":\"progress\"}\n",
+    "file": "D:\\t11-manual_poslipinka\\detect\\src\\main\\jni\\CMakeLists.txt",
+    "tag": "debug|arm64-v8a"
+  },
+  {
+    "level": "INFO",
+    "message": "{\"cookie\":\"\",\"inReplyTo\":\"configure\",\"message\":\"Detecting C compiler ABI info - done\",\"type\":\"message\"}\n",
+    "file": "D:\\t11-manual_poslipinka\\detect\\src\\main\\jni\\CMakeLists.txt",
+    "tag": "debug|arm64-v8a"
+  },
+  {
+    "level": "INFO",
+    "message": "Detecting C compiler ABI info - done",
+    "file": "D:\\t11-manual_poslipinka\\detect\\src\\main\\jni\\CMakeLists.txt",
+    "tag": "debug|arm64-v8a"
+  },
+  {
+    "level": "INFO",
+    "message": "{\"cookie\":\"\",\"inReplyTo\":\"configure\",\"message\":\"Detecting C compile features\",\"type\":\"message\"}\n",
+    "file": "D:\\t11-manual_poslipinka\\detect\\src\\main\\jni\\CMakeLists.txt",
+    "tag": "debug|arm64-v8a"
+  },
+  {
+    "level": "INFO",
+    "message": "Detecting C compile features",
+    "file": "D:\\t11-manual_poslipinka\\detect\\src\\main\\jni\\CMakeLists.txt",
+    "tag": "debug|arm64-v8a"
+  },
+  {
+    "level": "INFO",
+    "message": "{\"cookie\":\"\",\"inReplyTo\":\"configure\",\"progressCurrent\":96,\"progressMaximum\":1000,\"progressMessage\":\"Configuring\",\"progressMinimum\":0,\"type\":\"progress\"}\n",
+    "file": "D:\\t11-manual_poslipinka\\detect\\src\\main\\jni\\CMakeLists.txt",
+    "tag": "debug|arm64-v8a"
+  },
+  {
+    "level": "INFO",
+    "message": "{\"cookie\":\"\",\"inReplyTo\":\"configure\",\"progressCurrent\":126,\"progressMaximum\":1000,\"progressMessage\":\"Configuring\",\"progressMinimum\":0,\"type\":\"progress\"}\n",
+    "file": "D:\\t11-manual_poslipinka\\detect\\src\\main\\jni\\CMakeLists.txt",
+    "tag": "debug|arm64-v8a"
+  },
+  {
+    "level": "INFO",
+    "message": "{\"cookie\":\"\",\"inReplyTo\":\"configure\",\"progressCurrent\":155,\"progressMaximum\":1000,\"progressMessage\":\"Configuring\",\"progressMinimum\":0,\"type\":\"progress\"}\n",
+    "file": "D:\\t11-manual_poslipinka\\detect\\src\\main\\jni\\CMakeLists.txt",
+    "tag": "debug|arm64-v8a"
+  },
+  {
+    "level": "INFO",
+    "message": "{\"cookie\":\"\",\"inReplyTo\":\"configure\",\"message\":\"Detecting C compile features - done\",\"type\":\"message\"}\n",
+    "file": "D:\\t11-manual_poslipinka\\detect\\src\\main\\jni\\CMakeLists.txt",
+    "tag": "debug|arm64-v8a"
+  },
+  {
+    "level": "INFO",
+    "message": "Detecting C compile features - done",
+    "file": "D:\\t11-manual_poslipinka\\detect\\src\\main\\jni\\CMakeLists.txt",
+    "tag": "debug|arm64-v8a"
+  },
+  {
+    "level": "INFO",
+    "message": "{\"cookie\":\"\",\"inReplyTo\":\"configure\",\"message\":\"Check for working CXX compiler: D:/ProgramFiles/Sdk/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/bin/clang++.exe\",\"type\":\"message\"}\n",
+    "file": "D:\\t11-manual_poslipinka\\detect\\src\\main\\jni\\CMakeLists.txt",
+    "tag": "debug|arm64-v8a"
+  },
+  {
+    "level": "INFO",
+    "message": "Check for working CXX compiler: D:/ProgramFiles/Sdk/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/bin/clang++.exe",
+    "file": "D:\\t11-manual_poslipinka\\detect\\src\\main\\jni\\CMakeLists.txt",
+    "tag": "debug|arm64-v8a"
+  },
+  {
+    "level": "INFO",
+    "message": "{\"cookie\":\"\",\"inReplyTo\":\"configure\",\"progressCurrent\":184,\"progressMaximum\":1000,\"progressMessage\":\"Configuring\",\"progressMinimum\":0,\"type\":\"progress\"}\n",
+    "file": "D:\\t11-manual_poslipinka\\detect\\src\\main\\jni\\CMakeLists.txt",
+    "tag": "debug|arm64-v8a"
+  },
+  {
+    "level": "INFO",
+    "message": "{\"cookie\":\"\",\"inReplyTo\":\"configure\",\"message\":\"Check for working CXX compiler: D:/ProgramFiles/Sdk/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/bin/clang++.exe -- works\",\"type\":\"message\"}\n",
+    "file": "D:\\t11-manual_poslipinka\\detect\\src\\main\\jni\\CMakeLists.txt",
+    "tag": "debug|arm64-v8a"
+  },
+  {
+    "level": "INFO",
+    "message": "Check for working CXX compiler: D:/ProgramFiles/Sdk/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/bin/clang++.exe -- works",
+    "file": "D:\\t11-manual_poslipinka\\detect\\src\\main\\jni\\CMakeLists.txt",
+    "tag": "debug|arm64-v8a"
+  },
+  {
+    "level": "INFO",
+    "message": "{\"cookie\":\"\",\"inReplyTo\":\"configure\",\"message\":\"Detecting CXX compiler ABI info\",\"type\":\"message\"}\n",
+    "file": "D:\\t11-manual_poslipinka\\detect\\src\\main\\jni\\CMakeLists.txt",
+    "tag": "debug|arm64-v8a"
+  },
+  {
+    "level": "INFO",
+    "message": "Detecting CXX compiler ABI info",
+    "file": "D:\\t11-manual_poslipinka\\detect\\src\\main\\jni\\CMakeLists.txt",
+    "tag": "debug|arm64-v8a"
+  },
+  {
+    "level": "INFO",
+    "message": "{\"cookie\":\"\",\"inReplyTo\":\"configure\",\"progressCurrent\":211,\"progressMaximum\":1000,\"progressMessage\":\"Configuring\",\"progressMinimum\":0,\"type\":\"progress\"}\n",
+    "file": "D:\\t11-manual_poslipinka\\detect\\src\\main\\jni\\CMakeLists.txt",
+    "tag": "debug|arm64-v8a"
+  },
+  {
+    "level": "INFO",
+    "message": "{\"cookie\":\"\",\"inReplyTo\":\"configure\",\"message\":\"Detecting CXX compiler ABI info - done\",\"type\":\"message\"}\n",
+    "file": "D:\\t11-manual_poslipinka\\detect\\src\\main\\jni\\CMakeLists.txt",
+    "tag": "debug|arm64-v8a"
+  },
+  {
+    "level": "INFO",
+    "message": "Detecting CXX compiler ABI info - done",
+    "file": "D:\\t11-manual_poslipinka\\detect\\src\\main\\jni\\CMakeLists.txt",
+    "tag": "debug|arm64-v8a"
+  },
+  {
+    "level": "INFO",
+    "message": "{\"cookie\":\"\",\"inReplyTo\":\"configure\",\"message\":\"Detecting CXX compile features\",\"type\":\"message\"}\n",
+    "file": "D:\\t11-manual_poslipinka\\detect\\src\\main\\jni\\CMakeLists.txt",
+    "tag": "debug|arm64-v8a"
+  },
+  {
+    "level": "INFO",
+    "message": "Detecting CXX compile features",
+    "file": "D:\\t11-manual_poslipinka\\detect\\src\\main\\jni\\CMakeLists.txt",
+    "tag": "debug|arm64-v8a"
+  },
+  {
+    "level": "INFO",
+    "message": "{\"cookie\":\"\",\"inReplyTo\":\"configure\",\"progressCurrent\":237,\"progressMaximum\":1000,\"progressMessage\":\"Configuring\",\"progressMinimum\":0,\"type\":\"progress\"}\n",
+    "file": "D:\\t11-manual_poslipinka\\detect\\src\\main\\jni\\CMakeLists.txt",
+    "tag": "debug|arm64-v8a"
+  },
+  {
+    "level": "INFO",
+    "message": "{\"cookie\":\"\",\"inReplyTo\":\"configure\",\"progressCurrent\":262,\"progressMaximum\":1000,\"progressMessage\":\"Configuring\",\"progressMinimum\":0,\"type\":\"progress\"}\n",
+    "file": "D:\\t11-manual_poslipinka\\detect\\src\\main\\jni\\CMakeLists.txt",
+    "tag": "debug|arm64-v8a"
+  },
+  {
+    "level": "INFO",
+    "message": "{\"cookie\":\"\",\"inReplyTo\":\"configure\",\"progressCurrent\":287,\"progressMaximum\":1000,\"progressMessage\":\"Configuring\",\"progressMinimum\":0,\"type\":\"progress\"}\n",
+    "file": "D:\\t11-manual_poslipinka\\detect\\src\\main\\jni\\CMakeLists.txt",
+    "tag": "debug|arm64-v8a"
+  },
+  {
+    "level": "INFO",
+    "message": "{\"cookie\":\"\",\"inReplyTo\":\"configure\",\"progressCurrent\":311,\"progressMaximum\":1000,\"progressMessage\":\"Configuring\",\"progressMinimum\":0,\"type\":\"progress\"}\n",
+    "file": "D:\\t11-manual_poslipinka\\detect\\src\\main\\jni\\CMakeLists.txt",
+    "tag": "debug|arm64-v8a"
+  },
+  {
+    "level": "INFO",
+    "message": "{\"cookie\":\"\",\"inReplyTo\":\"configure\",\"message\":\"Detecting CXX compile features - done\",\"type\":\"message\"}\n",
+    "file": "D:\\t11-manual_poslipinka\\detect\\src\\main\\jni\\CMakeLists.txt",
+    "tag": "debug|arm64-v8a"
+  },
+  {
+    "level": "INFO",
+    "message": "Detecting CXX compile features - done",
+    "file": "D:\\t11-manual_poslipinka\\detect\\src\\main\\jni\\CMakeLists.txt",
+    "tag": "debug|arm64-v8a"
+  },
+  {
+    "level": "INFO",
+    "message": "{\"cookie\":\"\",\"inReplyTo\":\"configure\",\"message\":\"/abi-arm64-v8a\",\"type\":\"message\"}\n",
+    "file": "D:\\t11-manual_poslipinka\\detect\\src\\main\\jni\\CMakeLists.txt",
+    "tag": "debug|arm64-v8a"
+  },
+  {
+    "level": "INFO",
+    "message": "/abi-arm64-v8a",
+    "file": "D:\\t11-manual_poslipinka\\detect\\src\\main\\jni\\CMakeLists.txt",
+    "tag": "debug|arm64-v8a"
+  },
+  {
+    "level": "INFO",
+    "message": "{\"cookie\":\"\",\"inReplyTo\":\"configure\",\"message\":\"D:/t11-manual_poslipinka/detect/src/main/jni/opencv-mobile-4.5.4-android/sdk/native/jni/abi-arm64-v8a\",\"type\":\"message\"}\n",
+    "file": "D:\\t11-manual_poslipinka\\detect\\src\\main\\jni\\CMakeLists.txt",
+    "tag": "debug|arm64-v8a"
+  },
+  {
+    "level": "INFO",
+    "message": "D:/t11-manual_poslipinka/detect/src/main/jni/opencv-mobile-4.5.4-android/sdk/native/jni/abi-arm64-v8a",
+    "file": "D:\\t11-manual_poslipinka\\detect\\src\\main\\jni\\CMakeLists.txt",
+    "tag": "debug|arm64-v8a"
+  },
+  {
+    "level": "INFO",
+    "message": "{\"cookie\":\"\",\"inReplyTo\":\"configure\",\"message\":\"CMake Warning at opencv-mobile-4.5.4-android/sdk/native/jni/abi-arm64-v8a/OpenCVConfig.cmake:105 (message):\\n  Minimum required by OpenCV API level is android-24\\nCall Stack (most recent call first):\\n  opencv-mobile-4.5.4-android/sdk/native/jni/OpenCVConfig.cmake:45 (include)\\n  CMakeLists.txt:6 (find_package)\\n\\n\",\"title\":\"Warning\",\"type\":\"message\"}\n",
+    "file": "D:\\t11-manual_poslipinka\\detect\\src\\main\\jni\\CMakeLists.txt",
+    "tag": "debug|arm64-v8a"
+  },
+  {
+    "level": "WARN",
+    "message": "CMake Warning at D:\\t11-manual_poslipinka\\detect\\src\\main\\jni\\opencv-mobile-4.5.4-android\\sdk\\native\\jni\\abi-arm64-v8a\\OpenCVConfig.cmake:105 (message):\r\n  Minimum required by OpenCV API level is android-24\r\nCall Stack (most recent call first):\r\n  opencv-mobile-4.5.4-android/sdk/native/jni/OpenCVConfig.cmake:45 (include)\r\n  CMakeLists.txt:6 (find_package)\r\n",
+    "file": "D:\\t11-manual_poslipinka\\detect\\src\\main\\jni\\CMakeLists.txt",
+    "tag": "debug|arm64-v8a"
+  },
+  {
+    "level": "INFO",
+    "message": "{\"cookie\":\"\",\"inReplyTo\":\"configure\",\"message\":\"CMake Error at CMakeLists.txt:6 (find_package):\\n  Found package configuration file:\\n\\n    D:/t11-manual_poslipinka/detect/src/main/jni/opencv-mobile-4.5.4-android/sdk/native/jni/OpenCVConfig.cmake\\n\\n  but it set OpenCV_FOUND to FALSE so package \\\"OpenCV\\\" is considered to be\\n  NOT FOUND.\\n\\n\",\"title\":\"Error\",\"type\":\"message\"}\n",
+    "file": "D:\\t11-manual_poslipinka\\detect\\src\\main\\jni\\CMakeLists.txt",
+    "tag": "debug|arm64-v8a"
+  }
+]
